@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(90deg, #4facfe, #00f2fe, #68d391); /* Gradient from blue to green */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      animation: slide-in 1s forwards;
+    }
+
+    @keyframes slide-in {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      color: #2f855a;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #4a5568;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 6px;
+      background: #f7fafc;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #68d391;
+      background: #e6fffa;
+      box-shadow: 0 0 8px rgba(72, 187, 120, 0.6);
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background: linear-gradient(90deg, #48bb78, #38a169); /* Green gradient button */
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(56, 161, 105, 0.3);
+    }
+
+    .signin-link {
+      text-align: center;
+      margin-top: 1rem;
+      color: #2f855a;
+    }
+
+    .signin-link a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #38a169;
+      position: relative;
+    }
+
+    .signin-link a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #38a169;
+      transition: width 0.3s;
+    }
+
+    .signin-link a:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sign Up Container -->
+  <div class="container">
+    <h1>Create Account</h1>
+    <form action="/signup" method="POST">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="signin-link">
+      <p>Already have an account? <a href="SIGNIN.HTML">Sign In</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

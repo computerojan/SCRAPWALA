@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Bill</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, turquoise, springgreen);
+
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .bill-container {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        input {
+            width: 60px;
+            text-align: center;
+        }
+        .total {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #16a085;
+        }
+    </style>
+</head>
+<body>
+    <div class="bill-container">
+        <h1>Bill</h1>
+        <table>
+            <tr>
+                <th>Material</th>
+                <th>Rate (Rs/kg)</th>
+                <th>Weight (kg)</th>
+                <th>Cost (Rs)</th>
+            </tr>
+            <tr>
+                <td>Newspaper</td>
+                <td>11</td>
+                <td><input type="number" value="0" min="0" class="quantity" data-rate="11"></td>
+                <td class="cost">0</td>
+            </tr>
+            <tr>
+                <td>Cardboard</td>
+                <td>5</td>
+                <td><input type="number" value="0" min="0" class="quantity" data-rate="5"></td>
+                <td class="cost">0</td>
+            </tr>
+            <tr>
+                <td>Iron</td>
+                <td>23</td>
+                <td><input type="number" value="0" min="0" class="quantity" data-rate="23"></td>
+                <td class="cost">0</td>
+            </tr>
+            <tr>
+                <td>Copies/Books</td>
+                <td>12</td>
+                <td><input type="number" value="0" min="0" class="quantity" data-rate="12"></td>
+                <td class="cost">0</td>
+            </tr>
+            <tr>
+                <td>Plastic</td>
+                <td>10</td>
+                <td><input type="number" value="0" min="0" class="quantity" data-rate="10"></td>
+                <td class="cost">0</td>
+            </tr>
+            <tr>
+                <td>Glass Bottle</td>
+                <td>2</td>
+                <td><input type="number" value="0" min="0" class="quantity" data-rate="2"></td>
+                <td class="cost">0</td>
+            </tr>
+            <tr>
+                <td>Stainless Steel</td>
+                <td>37</td>
+                <td><input type="number" value="0" min="0" class="quantity" data-rate="37"></td>
+                <td class="cost">0</td>
+            </tr>
+        </table>
+        <div class="total">Total: Rs 0</div>
+        <button onclick="goToPayment()">Proceed to Payment</button>
+    </div>
+
+    <script>
+        const quantities = document.querySelectorAll('.quantity');
+        const costs = document.querySelectorAll('.cost');
+        const totalDiv = document.querySelector('.total');
+
+        function calculateTotal() {
+            let total = 0;
+            quantities.forEach((input, index) => {
+                const rate = input.dataset.rate;
+                const weight = input.value;
+                const cost = rate * weight;
+                costs[index].innerText = cost.toFixed(2);
+                total += cost;
+            });
+            totalDiv.innerText = `Total: Rs ${total.toFixed(2)}`;
+        }
+
+        function goToPayment() {
+            window.location.href = "PAYMENT.html";
+        }
+
+        quantities.forEach(input => input.addEventListener('input', calculateTotal));
+    </script>
+</body>
+</html>

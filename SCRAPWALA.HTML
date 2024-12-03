@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Scrapwala</title>
+    <!-- Include Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header Section */
+        header {
+            position: relative;
+            background: linear-gradient(to right, #0066cc, #00cc99), url('https://via.placeholder.com/1920x500?text=Scrapwala+Header+Image') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        header nav a {
+            margin: 0 20px;
+            font-size: 1.4rem;
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #f39c12;
+        }
+
+        header nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #f39c12;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        header nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Floating Social Media Icons */
+        .floating-icons {
+            position: fixed;
+            top: 30%;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+        }
+
+        .floating-icons a {
+            background-color: #3b5998; /* Facebook Blue */
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 1.6rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .floating-icons a:hover {
+            transform: translateX(8px);
+        }
+
+        .floating-icons a.fab.fa-instagram {
+            background-color: #E1306C; /* Instagram Pink */
+        }
+
+        .floating-icons a.fab.fa-telegram-plane {
+            background-color: #0088CC; /* Telegram Blue */
+        }
+
+        /* Hover color changes */
+        .floating-icons a:hover {
+            background-color: #0008b; /* Gold for hover effect */
+        }
+
+        .floating-icons a.fab.fa-instagram:hover {
+            background-color: #ff4081; /* Lighter pink for Instagram */
+        }
+
+        .floating-icons a.fab.fa-telegram-plane:hover {
+            background-color: #34b7f1; /* Lighter blue for Telegram */
+        }
+
+        /* Main Content Area */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: #35424a;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Button Styles */
+        .login-option {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .login-button {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #4FC978, #388e3c);
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.1);
+            filter: brightness(0.8);
+        }
+
+        /* Services Card Layout */
+        .services-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .service-card p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Welcome Section */
+        .welcome-text {
+            background: #28a745;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .welcome-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: #35424a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+
+            .login-button {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .services-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .image-gallery img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+ 
+<header>
+   <!-- Logo Section -->
+<div style="text-align: center; padding: 20px;">
+<img src="F:\self logo.png" alt="Scrapwala Logo" style="max-width: 275px; height: 165;">
+    
+</div>
+    <h1>Welcome to Scrapwala</h1>
+    <nav>
+       
+    </nav>
+</header>
+
+<!-- Floating Social Media Icons -->
+<div class="floating-icons">
+    <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
+    <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
+    <a href="https://telegram.org/" class="fab fa-telegram-plane"></a>
+</div>
+
+<!-- Login Section -->
+<div class="login-option">
+    <a href="ABOUT US.HTML" class="login-button">ABOUT US</a>
+    <a href="SIGNIN.HTML" class="login-button">SIGN IN</a>
+   <a href="SIGNUP.HTML" class="login-button">SIGN UP</a>
+    <a href="INFORMATION.HTML#" class="login-button">INFO</a>
+</div>
+
+<div class="welcome-text">
+    <h3>Welcome to Scrapwala</h3>
+    <p>SCRAPWALA is your reliable partner in eco-friendly scrap collection and recycling. We’re dedicated to making waste disposal easy and responsible, providing convenient and sustainable solutions for individuals and businesses alike. Join us in building a cleaner, greener future.</p>
+</div>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>At Scrapwala, we believe in providing top-notch services to help you with your needs. Whether it's scrap collection, recycling, or sustainable waste management, we've got you covered. We are committed to creating a cleaner, greener future for everyone.</p>
+</section>
+
+<section id="gallery">
+    <h2>Our Work</h2>
+    <div class="image-gallery">
+        <img src="https://www.arjes.de/wp-content/uploads/2024/04/scrap_metal_04.jpg" alt="Scrapwala Image 1">
+        <img src="https://www.seraphimplastics.com/wp-content/uploads/New-Swedish-Plant-Could-Define-the-Future-of-Plastic-Recycling.jpeg" alt="Scrapwala Image 2">
+        <img src="https://storagearcelormittalprod.blob.core.windows.net/media/kdqjsciw/shutterstock_98600195.jpg" alt="Scrapwala Image 3">
+    </div>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="services-cards">
+        <div class="service-card">
+            <h3>Scrap Collection</h3>
+            <p>Efficient and eco-friendly scrap collection services for homes and businesses.</p>
+        </div>
+        <div class="service-card">
+            <h3>Recycling Solutions</h3>
+            <p>Turn your waste into reusable materials with our advanced recycling systems.</p>
+        </div>
+        <div class="service-card">
+            <h3>High Paying JOBS</h3>
+          <p>As improving high labour work with more income and more job opportunities for unskilled labour</p>
+      </div>
+        <div class="service-card">
+            <h3>Sustainable Waste Management</h3>
+          <p>We offer sustainable waste management services for a cleaner, greener future.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>If you'd like to learn more about our services, get a quote, or ask any questions, don't hesitate to reach out! You can email us at <strong>scrapwala100@gmail.com</strong>.</p>
+</section>
+
+
+</body>
+</html>

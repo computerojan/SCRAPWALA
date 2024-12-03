@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, turquoise, springgreen);
+            color: #fff;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .payment-option {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .payment-option img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .payment-option:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a Payment Receiving Method</h1>
+    <div class="payment-options">
+        <a href="https://business.paytm.com" target="_blank" class="payment-option">
+            <img src="https://thepatriot.in/wp-content/uploads/2024/02/Paytm.jpg" alt="Paytm">
+        </a>
+        <a href="https://www.visa.com" target="_blank" class="payment-option">
+            <img src="https://play-lh.googleusercontent.com/WXjQ7bDwU2RFSIpV3bdEnhUAoHkxucrIXgtVj--VGKUTd1SHblyc1WU9B1b3SYPt-vA=w240-h480-rw" alt="Visa">
+        </a>
+        <a href="https://www.mastercard.com" target="_blank" class="payment-option">
+            <img src="https://media.wired.com/photos/5926dea77034dc5f91bece36/master/w_1600%2Cc_limit/Mastercard3-1.jpg" alt="MasterCard">
+        </a>
+        <a href="https://pay.google.com" target="_blank" class="payment-option">
+            <img src="https://i.pinimg.com/originals/8d/ec/e1/8dece15cc40aaf66ed47f6591b639d06.png" alt="Googlepay">
+        </a>
+        <a href="" target="_blank" class="payment-option">
+            <img src="https://www.marketing91.com/wp-content/uploads/2019/08/Payment-using-Cash.jpg" alt="Cash Payment">
+        </a>
+    </div>
+</body>
+</html>
